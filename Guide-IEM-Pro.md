@@ -268,7 +268,9 @@ kubectl create secret -n testlab tls kongcert --key out/myCert.key --cert out/my
 
 Download IEM Pro mappen og IEM configuration .json fra IEHub og læg dem ind i VM.
 
-Dette kan gøres ved at lægge dem i en mappe og så dele mappem med din VM. Eftter at have delt mappem med VM, kør:
+Dette kan gøres ved at lægge dem i en mappe og så dele mappem med din VM.
+
+Eftter at have delt mappem med VM, kør:
 ```bash
 sudo apt update
 sudo apt install virtualbox-guest-additions-iso virtualbox-guest-utils -y
@@ -288,12 +290,12 @@ cp /media/sf_*/configuration*.json ~/
 ```
 og det samme med applicationen-management-service mappen.
 
-Efter de ligger i hjemmemappen, skal de ændre ejerskab kør for begge:
+Efter de ligger i hjemmemappen, skal du ændre ejerskab, kør for begge:
 
 ```bash
 sudo chown $USER:$USER configuration*.json
 ```
-Nu er de klar til IEM installation, brug enten scriptet, for iempro eller helm installationen neden under:
+Nu er du klar til IEM installation, brug enten scriptet, for iempro eller helm installationen neden under:
 
 
 **VIGTIGT:** Denne konfiguration bruger PostgreSQL på VM via router DNS i stedet af intern database.
@@ -879,4 +881,5 @@ kubectl delete pod <gateway-proxy> -n testlab
 
 **URL:** `https://dit-hostname`
 **Standard bruger:** `iemuser` / `Siemens1234!`
+
 **Admin bruger:** `testlab` / `S13mens@PCT!`
